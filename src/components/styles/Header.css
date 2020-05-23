@@ -1,0 +1,13 @@
+.header__hero {
+  width: 100%;
+  padding: 2rem 0;
+  background: url('../../assets/img/stars.svg'), #1B1B25;
+  background-repeat: repeat;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.header__hero-image {
+  max-height: 100px;
+}
