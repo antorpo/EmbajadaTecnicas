@@ -3,6 +3,7 @@ import { FaCog } from 'react-icons/fa'
 import CountryModal from './CountryModal'
 import { connect } from 'react-redux'
 import { openModal, closeModal } from '../actions'
+import { Button } from 'react-bootstrap'
 
 const Country = (props) => {
   const { pais, openModal, closeModal, isOpen } = props
@@ -17,9 +18,9 @@ const Country = (props) => {
 
   return (
     <>
-      <button className='btn btn-light' onClick={onOpen}>
+      <Button variant='link' size='sm' className='text-dark' onClick={onOpen}>
         {pais.nombre} <FaCog />
-      </button>
+      </Button>
 
       <CountryModal isOpen={isOpen} onClose={onClose} />
     </>

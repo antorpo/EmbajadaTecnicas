@@ -56,7 +56,7 @@ const INITIAL_STATE = {
     {
       id: 2,
       nombre: 'Alemania',
-      flag: 'alemania.svg',
+      flag: 'alemania.png',
       telefono: '+49 (0) 30-26 39 611 0',
       direccion: 'Taubenstr. 23, D-10117 Berlín',
       email: 'ealemania@cancilleria.gov.co',

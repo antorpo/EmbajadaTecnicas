@@ -1,65 +1,100 @@
 import React from 'react'
 import './styles/Badge.css'
 import { FaCalendarCheck } from 'react-icons/fa'
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator'
+import { makeStyles } from '@material-ui/core/styles'
+import { Send } from '@material-ui/icons'
+import { Card, Button } from 'react-bootstrap'
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: 480,
+    marginTop: 40,
+    marginBottom: 40,
+
+    '& .MuiTextField-root': {
+      width: 400
+    }
+  },
+  media: {
+    objectFit: 'cover',
+    objectPosition: 'center center'
+  }
+}))
+
+const state = {
+  documento: ''
+}
+
+const handleChange = (event) => {
+  const documento = event.target.value
+  this.setState({ documento })
+}
 
 export const CitaForm = (props) => {
   const { onChange, formValues, onSubmit } = props
+  const classes = useStyles()
 
   return (
-    <div className='Badge'>
-      <div className='Badge__header'>
-        <h3><FaCalendarCheck /> Agendar Cita:</h3>
-      </div>
-
-      <div className='Badge__section-name'>
-        <form onSubmit={onSubmit}>
+    <Card className={classes.root}>
+      <Card.Header className='text-center h4'><FaCalendarCheck /> Agendar Cita:</Card.Header>
+      <Card.Body>
+        <ValidatorForm onSubmit={onSubmit} className='text-center'>
           <div className='form-group'>
-            <label>Nombre</label>
-            <input
-              onChange={onChange}
-              className='form-control'
-              type='text'
+            <TextValidator
               name='nombre'
+              onChange={onChange}
+              validators={['required']}
+              errorMessages={['Este campo es requerido']}
               value={formValues.nombre}
+              label='Nombre'
             />
           </div>
-
           <div className='form-group'>
-            <label>Apellidos</label>
-            <input
-              onChange={onChange}
-              className='form-control'
-              type='text'
+            <TextValidator
               name='apellidos'
+              onChange={onChange}
+              validators={['required']}
+              errorMessages={['Este campo es requerido']}
               value={formValues.apellidos}
+              label='Apellidos'
             />
           </div>
-
           <div className='form-group'>
-            <label>Documento</label>
-            <input
+            <TextValidator
+              label='Documento'
               onChange={onChange}
-              className='form-control'
-              type='text'
               name='documento'
               value={formValues.documento}
+              validators={['required', 'minNumber:10000000', 'maxNumber:9999999999']}
+              errorMessages={['Este campo es requerido',
+                'El número de Documento debe tener como minimo 8 dígitos',
+                'El número de Documento debe tener como máximo 11 dígitos']}
             />
           </div>
 
           <div className='form-group'>
-            <label>Email</label>
-            <input
+            <TextValidator
+              label='Correo Electrónico'
               onChange={onChange}
-              className='form-control'
-              type='email'
               name='email'
               value={formValues.email}
+              validators={['required', 'isEmail']}
+              errorMessages={['Este campo es requerido', 'Este correo electrónico no es valido']}
             />
           </div>
-
-          <button className='btn btn-primary'>Enviar</button>
-        </form>
-      </div>
-    </div>
+          <div className='form-group text-center'>
+            <Button
+              variant='danger'
+              size='sm'
+              className={classes.button}
+              type='submit'
+            >
+              Enviar <Send fontSize='small' />
+            </Button>
+          </div>
+        </ValidatorForm>
+      </Card.Body>
+    </Card>
   )
 }

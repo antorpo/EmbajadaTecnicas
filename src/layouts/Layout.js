@@ -1,15 +1,15 @@
 import React from 'react'
-import { NavBar } from '../components/NavBar'
-import { Header } from '../components/Header'
+import { NaveBar } from '../components/NavBar'
+import { Footer } from '../components/Footer'
 
 export const Layout = (props) => {
   const { children } = props
 
   return (
     <>
-      <Header />
-      <NavBar />
+      <NaveBar />
       {children}
+      <Footer />
     </>
   )
 }
