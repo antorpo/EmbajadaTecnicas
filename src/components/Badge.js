@@ -1,31 +1,50 @@
 import React from 'react'
 import './styles/Badge.css'
-import { FaInfoCircle } from 'react-icons/fa'
+import { makeStyles } from '@material-ui/core/styles'
+import CardMedia from '@material-ui/core/CardMedia'
+import { Card } from 'react-bootstrap'
+
+const useStyles = makeStyles({
+  root: {
+    height: 480,
+    marginTop: 40,
+    marginBottom: 5
+  },
+  media: {
+    objectFit: 'cover',
+    objectPosition: 'center center'
+  }
+})
 
 export const Badge = (props) => {
   const { nombre, flag, email, telefono, direccion, atencion } = props
   const ImgFlag = require(`../assets/img/${flag}`)
+  const classes = useStyles()
 
   return (
-    <div className='Badge'>
-      <div className='Badge__header'>
-        <h3><FaInfoCircle /> Informacion:</h3>
-      </div>
-
-      <div className='Badge__section-name'>
-        <img className='Badge__avatar' src={ImgFlag} alt='Avatar' />
-        <h3>
-          Embajada de Colombia <br /> en {nombre}
-        </h3>
-      </div>
-
-      <div className='Badge__section-info'>
-        <span className='titulos__content'>Telefono:</span> {telefono}
-        <span className='titulos__content'>Direccion:</span> {direccion}
-        <span className='titulos__content'>Atencion:</span> {atencion}
-      </div>
-
-      <div className='Badge__footer titulos__content'>Email: {email}</div>
-    </div>
+    <Card className={classes.root}>
+      <CardMedia
+        className={classes.media}
+        component='img'
+        alt='Bandera'
+        height='140'
+        image={ImgFlag}
+        title='Bandera'
+      />
+      <Card.Body>
+        <Card.Title className='text-center'>
+          Embajada de Colombia en {nombre}
+        </Card.Title>
+        <Card.Text>
+          <br />
+          <div className='Badge__section-info'>
+            <span className='titulos__content'>Telefono:</span> {telefono}
+            <span className='titulos__content'>Dirección:</span> {direccion}
+            <span className='titulos__content'>Atención:</span> {atencion}
+          </div>
+          <div className='Badge__footer titulos__content'>Correo Electrónico: {email}</div>
+        </Card.Text>
+      </Card.Body>
+    </Card>
   )
 }

@@ -1,37 +1,35 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import logo from '../assets/img/escudo_colombia.png'
 import Country from './Country'
 import './styles/NavBar.css'
 import { FaFlag } from 'react-icons/fa'
+import { Navbar, Nav, Badge, NavDropdown } from 'react-bootstrap'
+import { makeStyles } from '@material-ui/core/styles'
 
-export const NavBar = () => {
+const useStyles = makeStyles({
+  top: {
+    position: 'sticky'
+  }
+})
+
+export const NaveBar = () => {
+  const classes = useStyles()
   return (
-    <nav className='navbar navbar-expand-md bg-dark navbar-dark'>
-      <Link className='navbar__item' to='/'>
-        <img src={logo} alt='Logo' className='Logo' />
-      </Link>
-
-      <ul className='navbar-nav'>
-        <li>
-          <Link className='navbar__item' to='/embajada'>
-            Embajada
-          </Link>
-        </li>
-        <li>
-          <Link className='navbar__item' to='/citas'>
-            Citas
-          </Link>
-        </li>
-        <li>
-          <div className='navbar__item'>
-            <span className='badge badge-primary'>
-              <FaFlag /> Country:
-            </span>
-            <Country />
-          </div>
-        </li>
-      </ul>
-    </nav>
+    <Navbar bg='light' variant='light' fixed='top' className={classes.top}>
+      <Navbar.Brand href='/'><img src={logo} alt='Logo' className='Logo' />{' '} Embajada Colombiana </Navbar.Brand>
+      <Nav className='mr-auto'>
+        <NavDropdown title='Información' id='basic-nav-dropdown'>
+          <NavDropdown.Item href='/embajada'>¿Quienes Somos?</NavDropdown.Item>
+          <NavDropdown.Item href='/embajada/#funciones'>Funciones</NavDropdown.Item>
+          <NavDropdown.Item href='/'>Funcionarios</NavDropdown.Item>
+          <NavDropdown.Item href='/'>Cualquier Cosa</NavDropdown.Item>
+        </NavDropdown>
+        <Nav.Link href='/citas'>Citas</Nav.Link>
+      </Nav>
+      <Badge pill variant='primary'>
+        <FaFlag /> País:
+      </Badge>
+      <Country />
+    </Navbar>
   )
 }
