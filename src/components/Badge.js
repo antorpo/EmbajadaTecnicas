@@ -8,7 +8,10 @@ const useStyles = makeStyles({
   root: {
     height: 480,
     marginTop: 40,
-    marginBottom: 5
+    marginBottom: 5,
+    webkitBoxShadow: '2px -1px 21px -1px rgba(189,185,189,1)',
+    mozBoxShadow: '2px -1px 21px -1px rgba(189,185,189,1)',
+    boxShadow: '2px -1px 21px -1px rgba(189,185,189,1)'
   },
   media: {
     objectFit: 'cover',

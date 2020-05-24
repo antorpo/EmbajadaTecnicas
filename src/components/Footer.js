@@ -9,7 +9,10 @@ const useStyles = makeStyles({
     bottom: 0,
     right: 0,
     left: 0,
-    color: 'white'
+    color: 'white',
+    webkitBoxShadow: '2px -1px 21px -1px rgba(189,185,189,1)',
+    mozBoxShadow: '2px -1px 21px -1px rgba(189,185,189,1)',
+    boxShadow: '2px -1px 21px -1px rgba(189,185,189,1)'
   }
 })
 

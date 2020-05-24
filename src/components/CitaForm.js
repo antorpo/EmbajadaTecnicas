@@ -11,7 +11,9 @@ const useStyles = makeStyles((theme) => ({
     height: 480,
     marginTop: 40,
     marginBottom: 40,
-
+    webkitBoxShadow: '2px -1px 21px -1px rgba(189,185,189,1)',
+    mozBoxShadow: '2px -1px 21px -1px rgba(189,185,189,1)',
+    boxShadow: '2px -1px 21px -1px rgba(189,185,189,1)',
     '& .MuiTextField-root': {
       width: 400
     }
@@ -21,15 +23,6 @@ const useStyles = makeStyles((theme) => ({
     objectPosition: 'center center'
   }
 }))
-
-const state = {
-  documento: ''
-}
-
-const handleChange = (event) => {
-  const documento = event.target.value
-  this.setState({ documento })
-}
 
 export const CitaForm = (props) => {
   const { onChange, formValues, onSubmit } = props
