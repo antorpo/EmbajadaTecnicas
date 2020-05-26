@@ -38,15 +38,15 @@ export const Badge = (props) => {
         <Card.Title className='text-center'>
           Embajada de Colombia en {nombre}
         </Card.Title>
-        <Card.Text>
+        <Card.Text className='Badge__section-info'>
           <br />
-          <div className='Badge__section-info'>
-            <span className='titulos__content'>Telefono:</span> {telefono}
-            <span className='titulos__content'>Dirección:</span> {direccion}
-            <span className='titulos__content'>Atención:</span> {atencion}
-          </div>
-          <div className='Badge__footer titulos__content'>Correo Electrónico: {email}</div>
+          <span className='titulos__content'>Telefono:</span> {telefono}
+          <span className='titulos__content'>Dirección:</span> {direccion}
+          <span className='titulos__content'>Atención:</span> {atencion}
         </Card.Text>
+        <div className='Badge__footer titulos__content'>
+          Correo Electrónico: {email}
+        </div>
       </Card.Body>
     </Card>
   )

@@ -29,25 +29,24 @@ export const Header = () => {
     <div className='header__hero'>
       <Row>
         <Col>
-          <img className='header__hero-image img-fluid' src={header} alt='Logo' />
+          <img
+            className='header__hero-image img-fluid'
+            src={header}
+            alt='Logo'
+          />
         </Col>
         <Col>
           <div className='text-center'>
             <span>
-              &copy; {1900 + new Date().getYear()} {" "}
-             Esta aplicación fue hecha con fines academicos por {" "}
-              <a
-                href='https://github.com/vale0722'
-                className={classes.a}
-              >
-                Valeria Granada Rodas {" "}
+              &copy; {1900 + new Date().getYear()} Esta aplicación fue hecha con
+              fines academicos por{' '}
+              <a href='https://github.com/vale0722' className={classes.a}>
+                Valeria Granada Rodas{' '}
               </a>
               Y
-              <a
-                href='https://github.com/antorpo/'
-                className={classes.a}
-              >
-                {" "}Antonio Gonzalez Restrepo
+              <a href='https://github.com/antorpo/' className={classes.a}>
+                {' '}
+                Antonio Gonzalez Restrepo
               </a>
             </span>
           </div>

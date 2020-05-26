@@ -7,6 +7,47 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { reducer } from './reducers'
 
+import { firebaseConfig } from './config'
+
+// Conexion con firebase usando firestore:
+const firebase = require('firebase')
+require('firebase/firestore')
+
+firebase.initializeApp(firebaseConfig)
+const db = firebase.firestore()
+
+const holiwis = {
+  countries: [],
+  citas: [],
+  seleccionado: null,
+  isOpen: false
+}
+
+const fetchDataFirestore = async () => {
+  const countriesFs = db.collection('countries').get()
+  const seleccionado = db.collection('seleccionado').doc('SC').get()
+
+  const test = await Promise.all([countriesFs, seleccionado])
+
+  const countries = test[0].docs.map((_doc) => {
+    const country = _doc.data()
+    country.idfs = _doc.id
+
+    return country
+  })
+
+  const response = {
+    countries: [...countries],
+    seleccionado: test[1].data().id
+  }
+
+  return response
+}
+
+fetchDataFirestore().then((x) => {
+  console.log(x)
+})
+
 const INITIAL_STATE = {
   countries: [
     {
