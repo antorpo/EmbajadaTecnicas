@@ -18,4 +18,4 @@ $ npm run dev
 Application
 [`https://embajadatecnicas.now.sh/`][df1]
 
-[df1]: <https://embajadatecnicas.now.sh/>
+[df1]: <https://embajada-tecnicas.web.app/>
