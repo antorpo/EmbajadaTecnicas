@@ -1,11 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { traerEstado } from '../actions'
 import { NotFound } from '../pages/NotFound'
 import Home from '../pages/Home'
 import { Embajada } from '../pages/Embajada'
 import { Layout } from '../layouts/Layout'
+import { Loader } from './Loader'
 
-export const App = () => {
+const App = (props) => {
+  const { traerEstado, loading, error } = props
+
+  useEffect(() => {
+    traerEstado()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  if (loading) {
+    return <Loader mensaje='Cargando...' />
+  }
+
+  if (error) {
+    return <h1>{`Error: ${error}`}</h1>
+  }
+
   return (
     <BrowserRouter>
       <Layout>
@@ -19,3 +37,14 @@ export const App = () => {
     </BrowserRouter>
   )
 }
+
+const mapStateToProps = (state) => ({
+  loading: state.loading,
+  error: state.error
+})
+
+const mapDispatchToProps = {
+  traerEstado
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

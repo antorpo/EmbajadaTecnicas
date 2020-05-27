@@ -1,20 +1,20 @@
 import React from 'react'
 import { Dropdown } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { setCountry } from '../actions'
+import { seleccionarPais } from '../actions'
 
 const CountryItem = (props) => {
-  const { id, nombre, setCountry } = props
+  const { id, nombre, seleccionarPais } = props
 
   const handleClick = () => {
-    setCountry(id)
+    seleccionarPais(id)
   }
 
   return <Dropdown.Item onClick={handleClick}>{nombre}</Dropdown.Item>
 }
 
 const mapDispatchToProps = {
-  setCountry
+  seleccionarPais
 }
 
 export default connect(null, mapDispatchToProps)(CountryItem)
