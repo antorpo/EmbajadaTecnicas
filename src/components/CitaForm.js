@@ -8,14 +8,14 @@ import { Card, Button } from 'react-bootstrap'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: 480,
+    minHeight: 480,
     marginTop: 40,
     marginBottom: 40,
     webkitBoxShadow: '2px -1px 21px -1px rgba(189,185,189,1)',
     mozBoxShadow: '2px -1px 21px -1px rgba(189,185,189,1)',
     boxShadow: '2px -1px 21px -1px rgba(189,185,189,1)',
     '& .MuiTextField-root': {
-      width: 400
+      width: '100%'
     }
   },
   media: {
@@ -74,6 +74,18 @@ export const CitaForm = (props) => {
               value={formValues.email}
               validators={['required', 'isEmail']}
               errorMessages={['Este campo es requerido', 'Este correo electrónico no es valido']}
+            />
+          </div>
+          <div className='form-group'>
+            <TextValidator
+              type='datetime-local'
+              name='fecha'
+              validators={['required']}
+              errorMessages={['Este campo es requerido']}
+              value={formValues.fecha}
+              className='ValidatorForm-control'
+              onChange={onChange}
+              placeholder='fecha'
             />
           </div>
           <div className='form-group text-center'>

@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './styles/Badge.css'
 import { Badge } from './Badge'
-import { Funciones } from './Funciones'
 import { Col, Row } from 'react-bootstrap'
 
 const EmbajadaBadge = (props) => {
@@ -15,9 +14,7 @@ const EmbajadaBadge = (props) => {
           <Badge {...pais} />
         </Col>
       </Row>
-      <Funciones />
     </Col>
-
   )
 }
 

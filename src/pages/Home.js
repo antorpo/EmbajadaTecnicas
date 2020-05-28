@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { Badge } from '../components/Badge'
 import { CitaForm } from '../components/CitaForm'
 import { connect } from 'react-redux'
+import { Col, Row } from 'react-bootstrap'
 
 const Home = (props) => {
   const [form, setForm] = useState({
     nombre: '',
     apellidos: '',
     documento: '',
-    email: ''
+    email: '',
+    fecha: ''
   })
 
   const { pais } = props
@@ -30,7 +32,8 @@ const Home = (props) => {
       nombre: '',
       apellidos: '',
       documento: '',
-      email: ''
+      email: '',
+      fecha: ''
     })
   }
 
@@ -40,19 +43,16 @@ const Home = (props) => {
 
   return (
     <div className='container'>
-      <div className='row'>
-        <div className='col-6'>
-          <Badge {...pais} />
-        </div>
-
-        <div className='col-6'>
+      <Row>
+        <Col xs={12} sm={12} lg={6} md={12}><Badge {...pais} /></Col>
+        <Col xs={12} sm={12} lg={6} md={12}>
           <CitaForm
             formValues={form}
             onChange={handleChange}
             onSubmit={handleSubmit}
           />
-        </div>
-      </div>
+        </Col>
+      </Row>
     </div>
   )
 }

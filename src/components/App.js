@@ -5,6 +5,7 @@ import { traerEstado } from '../actions'
 import { NotFound } from '../pages/NotFound'
 import Home from '../pages/Home'
 import { Embajada } from '../pages/Embajada'
+import { Funciones } from '../pages/Funciones'
 import { Layout } from '../layouts/Layout'
 import { Loader } from './Loader'
 
@@ -13,7 +14,6 @@ const App = (props) => {
 
   useEffect(() => {
     traerEstado()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (loading) {
@@ -30,6 +30,7 @@ const App = (props) => {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/embajada' component={Embajada} />
+          <Route exact path='/funciones' component={Funciones} />
           <Route path='/404' component={NotFound} />
           <Redirect from='*' to='/404' />
         </Switch>

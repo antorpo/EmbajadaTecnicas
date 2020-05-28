@@ -21,27 +21,24 @@ export const NaveBar = () => {
   return (
     <Navbar bg='light' variant='light' fixed='top' className={classes.top}>
       <Navbar.Brand>
-        <Link to='/'>
+        <Link to='/' className='text-dark'>
           <img src={logo} alt='Logo' className='Logo' /> Embajada Colombiana
         </Link>
       </Navbar.Brand>
       <Nav className='mr-auto'>
         <NavDropdown title='Información' id='basic-nav-dropdown'>
           <NavDropdown.Item>
-            <Link to='/embajada'>¿Quienes Somos?</Link>
+            <Link to='/embajada' className='text-dark'>¿Quienes Somos?</Link>
           </NavDropdown.Item>
           <NavDropdown.Item>
-            <Link to='/funciones'>Funciones</Link>
+            <Link to='/funciones' className='text-dark'>Funciones</Link>
           </NavDropdown.Item>
           <NavDropdown.Item>
-            <Link to='/funcionarios'>Funcionarios</Link>
-          </NavDropdown.Item>
-          <NavDropdown.Item>
-            <Link to='/xd'>Cualquier Cosa</Link>
+            <Link to='/funcionarios' className='text-dark'>Funcionarios</Link>
           </NavDropdown.Item>
         </NavDropdown>
         <Nav.Link>
-          <Link to='/citas'>Citas</Link>
+          <Link to='/citas' className='text-dark'>Citas</Link>
         </Nav.Link>
       </Nav>
       <Badge pill variant='primary'>

@@ -6,7 +6,7 @@ import { Card } from 'react-bootstrap'
 
 const useStyles = makeStyles({
   root: {
-    height: 480,
+    minHeight: 480,
     marginTop: 40,
     marginBottom: 5,
     webkitBoxShadow: '2px -1px 21px -1px rgba(189,185,189,1)',

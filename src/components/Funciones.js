@@ -114,3 +114,5 @@ export const Funciones = () => {
     </Card>
   )
 }
+
+export default Funciones
