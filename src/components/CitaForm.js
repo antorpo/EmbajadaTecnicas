@@ -8,7 +8,7 @@ import { Card, Button } from 'react-bootstrap'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: 480,
+    minHeight: 460,
     marginTop: 40,
     marginBottom: 40,
     webkitBoxShadow: '2px -1px 21px -1px rgba(189,185,189,1)',
