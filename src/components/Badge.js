@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 })
 
 export const Badge = (props) => {
-  const { nombre, flag, email, telefono, direccion, atencion } = props
+  const { titulo, flag, email, telefono, direccion, atencion } = props
   const ImgFlag = require(`../assets/img/${flag}`)
   const classes = useStyles()
 
@@ -36,7 +36,7 @@ export const Badge = (props) => {
       />
       <Card.Body>
         <Card.Title className='text-center'>
-          Embajada de Colombia en {nombre}
+          {titulo}
         </Card.Title>
         <Card.Text className='Badge__section-info'>
           <br />
