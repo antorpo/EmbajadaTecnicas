@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles({
   root: {
     marginTop: 5,
-    marginBottom: 40,
+    marginBottom: 100,
     webkitBoxShadow: '2px -1px 21px -1px rgba(189,185,189,1)',
     mozBoxShadow: '2px -1px 21px -1px rgba(189,185,189,1)',
     boxShadow: '2px -1px 21px -1px rgba(189,185,189,1)'
