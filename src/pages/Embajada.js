@@ -7,6 +7,10 @@ export const Embajada = () => {
     <div className='container'>
       <EmbajadaBadge />
       <ConsuladoBadge />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   )
 }

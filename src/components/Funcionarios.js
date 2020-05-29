@@ -50,6 +50,12 @@ const Funcionarios = (props) => {
           return <FuncionarioBadge key={_funcionario.nombre} {..._funcionario} />
         })}
       </Row>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   )
 }
