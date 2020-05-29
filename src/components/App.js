@@ -15,7 +15,6 @@ const App = (props) => {
 
   useEffect(() => {
     traerEstado()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (loading) {

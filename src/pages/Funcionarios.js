@@ -1,7 +1,12 @@
 import React from 'react'
+import FuncionariosB from '../components/Funcionarios'
 
-const Funcionarios = (props) => {
-  return <h1>Funcionarios Works!</h1>
+export const Funcionarios = () => {
+  return (
+    <div className='container'>
+      <FuncionariosB />
+    </div>
+  )
 }
 
 export default Funcionarios
