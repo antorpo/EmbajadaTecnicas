@@ -16,11 +16,23 @@ export const reducer = (state, action) => {
         ...state,
         countries: [...action.payload.countries],
         seleccionado: action.payload.seleccionado,
+        citas: [...action.payload.citas],
         loading: false,
         error: null
       }
     case 'SELECCIONAR_PAIS':
       return { ...state, seleccionado: action.payload, isOpen: false }
+
+    case 'NUEVA_CITA':
+      return { ...state, citas: [...state.citas, action.payload] }
+
+    case 'CONSULTAR_CITA':
+      return {
+        ...state,
+        cita: state.citas.filter(
+          (_cita) => _cita.documento === action.payload
+        )[0]
+      }
     case 'LOADING':
       return { ...state, loading: true }
     case 'ERROR':

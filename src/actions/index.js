@@ -19,8 +19,9 @@ export const traerEstado = () => async (dispatch) => {
     const db = firebase.firestore()
     const countriesFs = db.collection('countries').get()
     const seleccionado = db.collection('seleccionado').doc('SC').get()
+    const citasFs = db.collection('citas').get()
 
-    const response = await Promise.all([countriesFs, seleccionado])
+    const response = await Promise.all([countriesFs, seleccionado, citasFs])
 
     const countries = response[0].docs.map((_doc) => {
       const country = _doc.data()
@@ -29,9 +30,17 @@ export const traerEstado = () => async (dispatch) => {
       return country
     })
 
+    const citas = response[2].docs.map((_cita) => {
+      const cita = _cita.data()
+      cita.idfs = _cita.id
+
+      return cita
+    })
+
     const data = {
       countries: [...countries],
-      seleccionado: response[1].data().id
+      seleccionado: response[1].data().id,
+      citas: [...citas]
     }
 
     dispatch({
@@ -64,3 +73,25 @@ export const seleccionarPais = (id) => async (dispatch) => {
     })
   }
 }
+
+export const crearCita = (cita) => async (dispatch) => {
+  try {
+    const db = firebase.firestore()
+    await db.collection('citas').add(cita)
+
+    dispatch({
+      type: 'NUEVA_CITA',
+      payload: cita
+    })
+  } catch (error) {
+    dispatch({
+      type: 'ERROR',
+      payload: error
+    })
+  }
+}
+
+export const consultarCita = (payload) => ({
+  type: 'CONSULTAR_CITA',
+  payload
+})

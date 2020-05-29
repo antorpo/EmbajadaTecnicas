@@ -8,25 +8,13 @@ export const CarouselBadge = () => {
   return (
     <Carousel>
       <Carousel.Item>
-        <img
-          className='d-block w-100'
-          src={Img1}
-          alt='Noticia'
-        />
+        <img className='d-block w-100' src={Img1} alt='Noticia' />
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className='d-block w-100'
-          src={Img2}
-          alt='Noticia'
-        />
+        <img className='d-block w-100' src={Img2} alt='Noticia' />
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className='d-block w-100'
-          src={Img3}
-          alt='Noticia'
-        />
+        <img className='d-block w-100' src={Img3} alt='Noticia' />
       </Carousel.Item>
     </Carousel>
   )

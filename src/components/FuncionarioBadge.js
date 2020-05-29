@@ -1,7 +1,6 @@
 import React from 'react'
 import './styles/Badge.css'
 import { makeStyles } from '@material-ui/core/styles'
-import CardMedia from '@material-ui/core/CardMedia'
 import { Card, Col } from 'react-bootstrap'
 
 const useStyles = makeStyles({
