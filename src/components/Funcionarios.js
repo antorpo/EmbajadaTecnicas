@@ -17,8 +17,7 @@ const useStyles = makeStyles({
   },
   title: {
     padding: '10px 10px',
-    color: 'white',
-    position: 'fixed'
+    color: 'gray'
   },
   media: {
     objectFit: 'unset',

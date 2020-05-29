@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles/Badge.css'
 import { makeStyles } from '@material-ui/core/styles'
+import CardMedia from '@material-ui/core/CardMedia'
 import { Card, Col } from 'react-bootstrap'
 
 const useStyles = makeStyles({
@@ -18,18 +19,19 @@ const useStyles = makeStyles({
 })
 
 export const FuncionarioBadge = (props) => {
-  const { cargo, nombre } = props
+  const { cargo, nombre, genero, seed } = props
   const classes = useStyles()
+  const ImgAvatar = `https://avatars.dicebear.com/api/${genero}/${seed}.svg`
 
   return (
     <Col xs={12} sm={12} lg={4} md={12}>
       <Card className={classes.root}>
+        <Card.Img style={{ height: '80px' }} variant='top' src={ImgAvatar} />
         <Card.Body>
-          <Card.Title className='text-center'>
-            {cargo}
-          </Card.Title>
+          <Card.Title className='text-center'>{cargo}</Card.Title>
           <Card.Text className='Badge__section-info'>
-            <span className='titulos__content text-center'>Nombre:</span> {nombre}
+            <span className='titulos__content text-center'>Nombre:</span>{' '}
+            {nombre}
           </Card.Text>
         </Card.Body>
       </Card>

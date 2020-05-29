@@ -12,7 +12,7 @@ const ConsuladoBadge = (props) => {
       <Row>
         <Col>
           {pais.consulados.map((_consulado) => {
-            return <Badge key={_consulado.ciudad} {..._consulado} />
+            return <Badge key={_consulado.email} {..._consulado} />
           })}
         </Col>
       </Row>
